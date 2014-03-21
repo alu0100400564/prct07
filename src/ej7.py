@@ -1,0 +1,28 @@
+
+import modulo
+import time
+
+pi = 3.1415926535897931159979634685441852
+
+def upla(n):
+  for elemento in n:
+    print "El valor aproximado de PI es: %11.10f" % elemento
+
+def mostrar(l):
+  print "     Pi       Aproximacion de Pi     Error"
+  for i in range (0, len(l)):
+    print '%11.10f    %11.10f    %11.10f'  %(pi, l[i], pi-l[i])    
+
+l = []
+t0 = time.time()
+t_upla=(1e1,1e2,1e3,1e4)
+for elemento in t_upla:
+  s=modulo.aproximacionpi(elemento)
+  l = l + [s]
+t = mostrar(l)
+t1 = time.time()
+
+print 'El tiempo utilizado es: %f' %(t1-t0), 'segundos'
+#El numero maximo de elementos es 8.
+#Cuando la t_upla tiene nueve elementos da error de memoria
+#Se puede utilizar notacion cientifica aunque se debe arreglar el error que se produce. 
